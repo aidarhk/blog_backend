@@ -1,0 +1,13 @@
+services:
+  blog-api:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./blog.db:/app/blog.db
+      - ./.env:/app/.env
+    environment:
+      - DATABASE_URL=sqlite+aiosqlite:///./blog.db
+      - SECRET_KEY=super-secret-docker-key-2026
+      - DEBUG=True
+    restart: unless-stopped
