@@ -32,11 +32,3 @@ Base.metadata.create_all(bind=engine)
 @app.get("/")
 def root():
     return {"message": "FastAPI Blog Backend"}
-
-@app.get("/config")
-def test_config():
-    from app.core.config import settings
-    return {
-        "db_url": settings.DATABASE_URL,
-        "secret_key": settings.SECRET_KEY[:10] + "..."
-    }
