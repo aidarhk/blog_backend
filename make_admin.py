@@ -9,7 +9,6 @@ import getpass
 from app.core.security import get_password_hash
 
 def make_admin():
-    # Ввод данных
     print("🔧 Создание/обновление админа")
     print("-" * 40)
     
@@ -20,12 +19,10 @@ def make_admin():
         print("❌ Email и пароль обязательны!")
         return
     
-    # Подключение к БД
     try:
         conn = sqlite3.connect('blog.db')
         cursor = conn.cursor()
         
-        # Хешируем пароль
         hashed_password = get_password_hash(password)
         
         # UPSERT (создать или обновить)

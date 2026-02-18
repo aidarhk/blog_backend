@@ -4,7 +4,6 @@ from app.core.database import engine, Base
 from app.routers.auth import router as auth_router
 from app.routers import auth, users, posts, categories, admin
 
-# ✅ КРИТИЧНО: Импортируем модели, чтобы SQLAlchemy их увидел
 from app.models.user import User
 from app.models.post import Post
 from app.models.category import Category
@@ -25,8 +24,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-
-# Теперь создаст все таблицы
 Base.metadata.create_all(bind=engine)
 
 @app.get("/")

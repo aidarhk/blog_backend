@@ -5,7 +5,7 @@ from app.core.database import get_db
 from app.models.category import Category
 from app.models.post import Post
 from app.schemas.category import CategoryOut
-from app.schemas.post import PostOut  # ← ДОБАВИТЬ
+from app.schemas.post import PostOut
 
 router = APIRouter()
 
